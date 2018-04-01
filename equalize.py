@@ -13,15 +13,11 @@ def equalize(height, width, img):
     for chave in tabela_probabilidades: # Calculo a probabilidade de cada tom na imagem
         tabela_probabilidades[chave] /= height * width
 
-    #print(tabela_probabilidades)
-    #print(len(tabela_probabilidades))
-
     for x in range(19, 256): # Calculo a probabilidade acumudala de cada tom
         if (x in tabela_probabilidades):
             tabela_probabilidades[x] += tabela_probabilidades[ultimo_valido]
             ultimo_valido = x # Crio essa variável pois não há pixels em todos os tons de 18 a 256
-    #print(tabela_probabilidades)
-
+ 
     for chave in tabela_probabilidades: # Realizo a equalização e o arredondamento das chaves na tabela
         intAUX = int(tabela_probabilidades[chave] * 255)
         tabela_probabilidades[chave] *= 255
@@ -29,8 +25,6 @@ def equalize(height, width, img):
         if (tabela_probabilidades[chave] - intAUX) > 0.5:
             intAUX += 1
         tabela_probabilidades[chave] = intAUX
-
-    #print(tabela_probabilidades)
 
     for j in range(height): # Percorro a imagem pintando os pixels com os novos tons equalizados
         for i in range(width):
