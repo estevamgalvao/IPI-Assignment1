@@ -95,3 +95,4 @@ for j in range(1, height):# linhas -> anda pelo eixo Y, a partir do 1 porque o 0
 
 cv2.imwrite("spotsN_spotted.tif", spotsAUX)
 print("Células com buracos: ", marcadorN-1)# -1 porque o marcador já inicia com 0, afim de impedir que os primeiros pixels não recebam a marcação pela cor, afinal 0*15 = 0... resultando em um loop infinito
+print("\nForam criadas imagens que mostram a lógica do algoritmo!")
